@@ -150,6 +150,7 @@ do {
         }
     }
 
+    /*T.M.G.C*/
     // At the end, the professor can decide if the app continues running for another test or if it stops. We ask the user if they want to run the program again.
     let again = prompt('\nWould you like to run the program again? (y/n) ').toLowerCase();
     runAgain = again === 'y';
