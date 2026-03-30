@@ -1,0 +1,28 @@
+Category	Command	Description		
+Navigation	pwd	Print Working Directory (shows where you are).		
+	ls	List files and directories in the current folder.		
+	cd [dir]	Change Directory to a specific path.		
+	cd ..	Move up one directory level.		
+File Operations	mkdir [name]	Make a new Directory.		
+	touch [file]	Create a new empty file.		
+	cp [src] [dest]	Copy files or directories.		
+	mv [src] [dest]	Move or rename files/directories.		
+	rm [file]	Remove a file.		
+	rm -r [dir]	Remove a directory and its contents recursively.		
+System & Packages	sudo	Execute a command with SuperUser privileges.		
+	apt update	Update the local list of available packages.		
+	apt upgrade	Install available upgrades for all packages.		
+	apt install [pkg]	Install a specific software package.		
+	df -h	Show available Disk Free space (human-readable).		
+	top / htop	Display real-time system resource usage/processes.		
+Text & Search	cat [file]	Display the entire content of a file.		
+	head [file]	Output the first 10 lines of a file.		
+	tail [file]	Output the last 10 lines (useful for logs).		
+	nano [file]	Simple command-line text editor.		
+	grep "[term]"	Search for a specific pattern/string in text.		
+Permissions	chmod [perms]	CHange MODe (change file permissions).		
+	chown [user]	CHange OWNer of a file or directory.		
+	whoami	Print the current logged-in username.		
+Utilities	clear	Clear the terminal screen.		
+	history	List recently used commands.		
+	man [cmd]	Open the MANual page for a command.		
