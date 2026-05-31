@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Project</title>
+    <style>
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS 
+            https://lipsum.com/feed/html
+        */
+        /*
+        CSS Advanced Project
+        */
+
+        /* Centralize the Layout */
+        :root {
+            /* Text Colors */
+            --clr-text-dark: #2d3748;
+            --clr-text-light: #f7fafc;
+            --clr-text-muted: #718096;
+            
+            /* Background Colors */
+            --clr-bg-primary: #ffffff;
+            --clr-bg-secondary: #edf2f7;
+            --clr-bg-accent: #3182ce;
+            
+            /* Text Sizes */
+            --fs-body: 1rem;
+            --fs-nav: 0.95rem;
+            --fs-h1: 1.8rem;
+            --fs-h2: 1.4rem;
+            --fs-footer: 0.85rem;
+        }
+
+        /* Base Reset 
+        Worked perfecly on FireFox and Chrome, not tested on Safari or Edge, but should work fine.*/
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /*Choosed to work better on all systems (On linux is fine)*/
+            font-size: var(--fs-body);
+            color: var(--clr-text-dark);
+            background-color: var(--clr-bg-secondary);
+            line-height: 1.6;
+        }
+
+        /* Mobili single colum*/
+        
+        /* CSS Grid */
+        .site-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "header"
+                "main"
+                "sidebar"
+                "footer";
+            min-height: 100vh;
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Elements to grid areas */
+        header  { grid-area: header; }
+        main    { grid-area: main; }
+        aside   { grid-area: sidebar; }
+        footer  { grid-area: footer; }
+
+        /* Styling */
+        header, main, aside, footer {
+            background-color: var(--clr-bg-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Flexbox */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        header h1 {
+            font-size: var(--fs-h1);
+            color: var(--clr-bg-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--clr-text-dark);
+            font-size: var(--fs-nav);
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--clr-bg-accent);
+        }
+
+        /* Content Styles */
+        main h2, aside h3 {
+            font-size: var(--fs-h2);
+            margin-bottom: 0.75rem;
+        }
+
+        aside {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--clr-bg-accent);
+        }
+
+        footer {
+            text-align: center;
+            font-size: var(--fs-footer);
+            color: var(--clr-text-muted);
+        }
+
+        /* PC Layout */
+        @media (min-width: 768px) {
+            .site-container {
+                /* 2 column on pc */
+                grid-template-columns: 2fr 1fr;
+                grid-template-areas: 
+                    "header  header"
+                    "main    sidebar"
+                    "footer  footer";
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            /* Scaling fonts */
+            :root {
+                --fs-h1: 2.3rem;
+                --fs-h2: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-container">
+        
+        <header>
+            <h1>CSS Project 2</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Main Content Column</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat aliquet nisl, sed fringilla massa. Nullam ac ex non ipsum cursus pretium. Aliquam sed quam diam. Sed elementum quam vel erat feugiat consectetur. Suspendisse potenti. Praesent et lectus consequat, accumsan ex in, posuere quam. Sed faucibus sed urna at blandit. Pellentesque feugiat leo nec diam vehicula placerat. </p>
+            <p>Proin in luctus diam. Nunc hendrerit odio vitae aliquam consequat. Mauris arcu nisi, viverra at leo ac, mattis scelerisque nibh. Nam malesuada tempus sapien, quis elementum elit volutpat sit amet. Duis tellus arcu, pretium nec convallis nec, consequat sed ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ut nulla in tortor placerat consequat. Aliquam efficitur ex sed libero vehicula semper. Aliquam at ipsum et libero iaculis sodales eget nec diam. Nullam iaculis tempus nisl, ac sollicitudin mauris sollicitudin ac. Fusce euismod, nisi sed tincidunt eleifend, nisi est porta odio, a gravida urna sem et neque. Phasellus sem felis, luctus vel velit vehicula, vestibulum gravida velit. </p>
+        </main>
+
+        <aside>
+            <h3>Sidebar Column</h3>
+            <p>Fusce placerat mollis purus. Proin vel eleifend velit. Morbi ut risus sed justo consectetur tristique nec id tellus. Vestibulum bibendum ex vitae massa porta, sit amet finibus nisl vestibulum. Morbi finibus, risus a facilisis pulvinar, lacus mauris aliquet mauris, vitae blandit ligula magna ut lectus. Nam in sem sit amet tortor fermentum luctus. Integer porttitor elit ut feugiat eleifend. Morbi at est a nibh hendrerit consequat vel non enim. Aliquam mollis tortor porttitor, porta velit et, euismod ligula. Mauris id justo neque. </p>
+        </aside>
+
+        <footer>
+            <p>&copy; 2026 Crafted with tears and despair.</p>
+        </footer>
+        
+
+    </div>
+
+</body>
+</html>
